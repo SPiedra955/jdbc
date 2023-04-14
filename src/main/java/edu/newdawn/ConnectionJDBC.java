@@ -28,9 +28,9 @@ public class ConnectionJDBC {
 	private static void initDatabaseConnection() throws SQLException {
 		System.out.println("Connecting to the database...");
 		connection = DriverManager.getConnection(
-				"jdbc:mariadb://localhost:3306/uni",
-				"root", "1234");
-		System.out.println("Connection valid: " + connection.isValid(5));
+				"jdbc:mariadb://localhost:[port_number]/[db_name]",
+				"root", "[db_password]");
+		System.out.println("Connection valid: " + connection.isValid(5)); /* time of response */
 	}
 
 	private static void closeDatabaseConnection() throws SQLException {
