@@ -29,7 +29,7 @@ public class ConnectionJDBC {
 		System.out.println("Connecting to the database...");
 		connection = DriverManager.getConnection(
 				"jdbc:mariadb://localhost:[port_number]/[db_name]",
-				"root", "[db_password]");
+				"[db_user]", "[db_password]");
 		System.out.println("Connection valid: " + connection.isValid(5)); /* time of response */
 	}
 
