@@ -23,7 +23,6 @@ public class Crud {
         createData("Anabel", "Rigo", "Font", 2, false);
         readData();
         updateData(true);
-        updateData(true);
         readData();
         deleteData("Rigo", "Font");
         readData();
@@ -95,11 +94,10 @@ public class Crud {
                             int score = resultSet.getInt("score");
                             Boolean approved = resultSet.getBoolean("approved");
                             System.out.println("\t> " + name + " " + surname + " = " + 
-                                               " aprobado -> " + approved
+                                               " approved -> " + approved
                                                + "(" + score + ")");
                         }
                         if(empty){
-                            System.out.println("Reading data...");
                             System.out.println("\t (no data)");
                         }
                     }
