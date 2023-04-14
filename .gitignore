@@ -6,6 +6,10 @@
 *.class
 *.target
 *\.target
+/target/
+*/target/**
+target/
+*target/
 
 # Log file
 *.log
