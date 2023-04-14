@@ -4,6 +4,7 @@
    * [**Requirements**](#requirements)
  * [**Starting a project with Maven**](#starting-a-project-with-maven)
  * [**First connection to database**](first-connection-to-database)
+   * [**CRUD**](#crud)
  * [**Pool connection**](#pool-connection)
  * [**Connection using JPA**](#connection-using-jpa)
  
@@ -68,10 +69,11 @@ _[Java - Configurar Visual Studio Code y Maven](https://www.youtube.com/watch?v=
 
  # First connection to database
  
- Choose in your workspace [```pom.xml```](https://github.com/SPiedra955/jdbc/blob/master/pom.xml) (Click to view the file) and add the JDBC Driver ([check the last version](https://mariadb.com/docs/skysql/connect/programming-languages/java/))
+**Before starting, a previously created database is needed** :heavy_exclamation_mark::heavy_exclamation_mark:
+Choose in your workspace [```pom.xml```](https://github.com/SPiedra955/jdbc/blob/master/pom.xml) (Click to view the file) and add the JDBC Driver ([check the last version](https://mariadb.com/docs/skysql/connect/programming-languages/java/))
  
  ````
- <dependency>
+<dependency>
     <groupId>org.mariadb.jdbc</groupId>
     <artifactId>mariadb-java-client</artifactId>
     <version>LATEST</version>
@@ -85,8 +87,15 @@ _Expected output for this file_:
 
 ![image](https://user-images.githubusercontent.com/114516225/232113067-e6e88e16-5c06-4995-99d5-78396b948232.png)
 
+### CRUD
+
+In this section we implement the execution of SELECT, INSERT, UPDATE and DELETE statements in a SQL database using JDBC.
+
+
 # Pool connection
- 
+
+
+
 
 Pool connection using JDBC
 Connection using JP
