@@ -7,18 +7,18 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 
-public class JpaService {
+public class JPA_Service {
 
-    private static JpaService instance;
+    private static JPA_Service instance;
 
     private EntityManagerFactory entityManagerFactory;
 
-    private JpaService(){
+    private JPA_Service(){
         entityManagerFactory = Persistence.createEntityManagerFactory("jpa-demo-local");
     }
 
-    public static synchronized JpaService getInstance(){
-		return instance == null ? instance = new JpaService() : instance;
+    public static synchronized JPA_Service getInstance(){
+		return instance == null ? instance = new JPA_Service() : instance;
     }
     
 
