@@ -140,8 +140,8 @@ public class Crud {
     private static void initDatabaseConnection() throws SQLException{
             System.out.println("Connecting to database...");
             connection = DriverManager.getConnection(
-                "jdbc:mariadb://localhost:3306/students", 
-                "root", "1234");
+                "jdbc:mariadb://localhost:[db_port]/[db_name]", 
+                "[db_user]", "[db_password]");
             System.out.println("Connection valid: " + connection.isValid(5));
     }
 
