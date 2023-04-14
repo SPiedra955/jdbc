@@ -90,12 +90,15 @@ _Expected output for this file_:
 ### CRUD
 
 In this section we implement the execution of SELECT, INSERT, UPDATE and DELETE statements in a SQL database using JDBC.
+This file contains the code to generate a table inside a database (you have to create it before) and execute operations such as create, read, update and delete.
+Check the file [```Crud.java```](https://github.com/SPiedra955/jdbc/blob/master/src/main/java/edu/newdawn/Crud.java).
 
+_Expected output for this file
+
+![image](https://user-images.githubusercontent.com/114516225/232170175-27b470c1-44ea-4c0a-85a9-07d7410a74c5.png)
+
+In the image above we insert some values for students such as personal data and their grades for a course where by default the value ___approved___ is false, when we update the values they are set to ___true___ if the grade is equal or higher than 5 and finally a student is dropped because he/she leaves the course.
 
 # Pool connection
 
-
-
-
-Pool connection using JDBC
-Connection using JP
+# Connection using JPA
