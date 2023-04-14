@@ -68,7 +68,7 @@ _[Java - Configurar Visual Studio Code y Maven](https://www.youtube.com/watch?v=
 
  # First connection to database
  
- Choose in your workspace ```pom.xml``` and add the JDBC Driver ([check the last version](https://mariadb.com/docs/skysql/connect/programming-languages/java/))
+ Choose in your workspace [```pom.xml```](https://github.com/SPiedra955/jdbc/blob/master/pom.xml) (Click to view the file) and add the JDBC Driver ([check the last version](https://mariadb.com/docs/skysql/connect/programming-languages/java/))
  
  ````
  <dependency>
@@ -78,10 +78,15 @@ _[Java - Configurar Visual Studio Code y Maven](https://www.youtube.com/watch?v=
 </dependency>
 ````
 
-Create a Java class for example ```ConnectionJDBC.java```
- 
+Create a Java class for example [```ConnectionJDBC.java```](https://github.com/SPiedra955/jdbc/blob/master/src/main/java/edu/newdawn/ConnectionJDBC.java) (Click to view the file)
+This code establishes a connection to a MariaDB database using JDBC. First, it defines a class called "ConnectionJDBC" which contains a main method that calls two methods: "initDatabaseConnection()" to establish the connection and "closeDatabaseConnection()" to close the connection. The connection is established by using a URL, username and password. The program prints whether the connection is valid after establishing and closing the connection.
+
+_Expected output for this file_:
+
+![image](https://user-images.githubusercontent.com/114516225/232113067-e6e88e16-5c06-4995-99d5-78396b948232.png)
+
+# Pool connection
  
 
-Plain connection using JDBC
 Pool connection using JDBC
 Connection using JP
