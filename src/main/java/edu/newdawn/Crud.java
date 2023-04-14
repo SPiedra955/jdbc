@@ -16,14 +16,14 @@ public class Crud {
         dropTable();
         createTable();
         readData();
-        createData("Justin", "Perez", "Oms", 7, true);
+        createData("Justin", "Perez", "Oms", 7, false);
         createData("Joan", "Marti", "Marti", 1, false);
-        createData("Luis", "Garcia", "Paz", 5, true);
+        createData("Luis", "Garcia", "Paz", 5, false);
         createData("Andres", "Naranjo", "Valdez", 2, false);
         createData("Anabel", "Rigo", "Font", 2, false);
         readData();
-        updateData("Joan", "Marti", 5);
-        updateData("Andres","Naranjo", 5);
+        updateData(true);
+        updateData(true);
         readData();
         deleteData("Rigo", "Font");
         readData();
@@ -32,12 +32,16 @@ public class Crud {
         }
     }
 
+    /* DROP TABLE    */
+
    private static void dropTable() throws SQLException {
     try (PreparedStatement statement = connection.prepareStatement("DROP TABLE IF EXISTS db_course")) {
         statement.executeUpdate();
         System.out.println("Deleting records...");
+        }
     }
-}
+
+    /* CREATE TABLE */
 
     private static void createTable() throws SQLException {
         try (PreparedStatement statement = connection.prepareStatement("""
@@ -104,16 +108,13 @@ public class Crud {
     
     /* UPDATE DATA */
 
-    private static void updateData(String surname, String last_name, int newscore) throws SQLException{
+    private static void updateData(Boolean approved) throws SQLException{
         try(PreparedStatement statement = connection.prepareStatement("""
                     UPDATE db_course
-                    SET score = ?
-                    WHERE surname = ?
-                    AND last_name = ?
+                    SET approved = ?
+                    WHERE score >= 5
                     """)) {
-            statement.setInt(1, newscore);
-            statement.setString(2, surname);
-            statement.setString(3, last_name);
+            statement.setBoolean(1, approved);
             int rowsUpdated = statement.executeUpdate();
             System.out.println("Updating data...");
             System.out.println("Rows update: " + rowsUpdated);                
