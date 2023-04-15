@@ -14,7 +14,7 @@ public class JpaService {
     private EntityManagerFactory entityManagerFactory;
 
     private JpaService(){
-        entityManagerFactory = Persistence.createEntityManagerFactory("students");
+        entityManagerFactory = Persistence.createEntityManagerFactory("shops-database");
     }
 
     public static synchronized JpaService getInstance(){

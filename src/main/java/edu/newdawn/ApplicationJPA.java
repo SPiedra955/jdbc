@@ -7,33 +7,33 @@ public class ApplicationJPA {
     
 	private static final JpaService jpaService = JpaService.getInstance();
 
-    public static void main(String[] args){
+	public static void main(String[] args){
         try {
-			createProgrammingLanguages();
-			printTopProgrammingLanguages();
+			createProducts();
+			printProducts();
 
 		} finally {
 			jpaService.shutdown();
 		}
 	}
 
-	private static void createProgrammingLanguages() {
+	private static void createProducts() {
 		jpaService.runInTransaction(entityManager -> {
-			Arrays.stream("Java,C++,C#,JavaScript,Rust,Go,Python,PHP".split(","))
-					.map(name -> new ProgrammingLanguage(name, (int) (Math.random() * 10)))
-					.forEach(entityManager::persist);
+			Arrays.stream("Laptop,Mouse,Printer,Scanner,USB,Keyboard,Python,Pencil".split(","))
+			.map(name -> new Products(name, (int) (Math.random() * 10), (int) (Math.random() * 100)))
+			.forEach(entityManager::persist);
 			return null;
 		});
 	}
 
-	private static void printTopProgrammingLanguages() {
-		List<ProgrammingLanguage> programmingLanguages = jpaService
+	private static void printProducts() {
+		List<Products> products = jpaService
 				.runInTransaction(entityManager -> entityManager.createQuery(
-						"select p from ProgrammingLanguage p where p.rating > 5",
-						ProgrammingLanguage.class).getResultList());
+						"SELECT p FROM Products p WHERE p.price > 5",
+						Products.class).getResultList());
 
-		programmingLanguages.stream()
-				.map(pl -> pl.getName() + ": " + pl.getRating())
+		products.stream()
+				.map(pl -> pl.getName() + ": " + pl.getPrice())
 				.forEach(System.out::println);
 	}
 }
