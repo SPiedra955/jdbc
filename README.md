@@ -112,9 +112,9 @@ These are the dependencies you need to add to your [````pom.xml````](https://git
 
 ````
 <dependency>
-  <groupId>com.zaxxer</groupId> 
-  <artifactId>HikariCP</artifactId>
-  <version>5.0.0</version>
+   <groupId>com.zaxxer</groupId>
+   <artifactId>HikariCP</artifactId>
+   <version>5.0.0</version>
 </dependency>
   
 <dependency>
@@ -151,5 +151,52 @@ _Expected output for this file_:
 
 ![image](https://user-images.githubusercontent.com/114516225/232217294-ea4df5c8-f8f4-406f-ab60-ed449aac2a88.png)
 
-
 # Connection using JPA
+
+### JPA
+
+JPA stands for Java Persistence API. It is a Java specification that provides a framework for managing relational data in Java applications. JPA defines a set of interfaces and annotations that allows developers to easily map Java objects to relational database tables and perform CRUD (Create, Read, Update, Delete) operations using standard Java objects and methods. JPA also provides a way to query data using a simple and powerful query language called JPQL (Java Persistence Query Language), which is similar to SQL but operates on Java objects rather than database tables.
+
+### Dependencies
+````
+<dependency>
+    <groupId>org.mariadb.jdbc</groupId>
+    <artifactId>mariadb-java-client</artifactId>
+    <version>LATEST</version>
+</dependency>
+
+<dependency>
+    <groupId>jakarta.persistence</groupId>
+    <artifactId>jakarta.persistence-api</artifactId>
+    <version>3.0.0</version>
+</dependency>
+  
+<dependency>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate-core-jakarta</artifactId>
+    <version>5.6.4.Final</version>
+</dependency>
+  
+<dependency>
+    <groupId>org.glassfish.jaxb</groupId>
+    <artifactId>jaxb-runtime</artifactId>
+    <version>3.0.0</version>
+</dependency>
+````
+
+### Files
+
+[```Products.java```] This file contains the code to create the table and its fields, the methods are defined and very intuitive to understand.
+
+[```JpaService.java```] This code allows executing functions inside a transaction in a JPA database. The class has a runInTransaction() method that takes a function as an argument and executes it inside a transaction. If the function executes successfully, the transaction is committed, otherwise a rollback is performed. The class also has methods to initialise and close the database connection.
+
+[```ApplicationnJPA.java```] This file uses the JpaService class to create and retrieve objects from the JPA database. In its main() method, it first calls the createProducts() method which creates some Products objects with random names and prices and stores them in the database. Then, it calls the printProducts() method that executes a JPA query to retrieve all the products that have a price greater than 5 and displays them by console. The file is a sample application that demonstrates how to use the JpaService class to interact with a JPA database.
+
+_Expected output_:
+
+![image](https://user-images.githubusercontent.com/114516225/232240456-e563b402-0e1d-4d09-9316-d72fec7c7af6.png)
+
+
+
+
+
