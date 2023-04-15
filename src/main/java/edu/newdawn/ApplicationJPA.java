@@ -27,9 +27,8 @@ public class ApplicationJPA {
 	}
 
 	private static void printProducts() {
-		List<Products> products = jpaService
-				.runInTransaction(entityManager -> entityManager.createQuery(
-						"SELECT p FROM Products p WHERE p.price > 5",
+		List<Products> products = jpaService.runInTransaction(entityManager -> entityManager
+		.createQuery("SELECT p FROM Products p WHERE p.price > 5",
 						Products.class).getResultList());
 
 		products.stream()

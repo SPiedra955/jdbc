@@ -35,9 +35,9 @@ public class Products {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+    public boolean equals(Object o) { /* Compare two objects to check if both have the same state */
+        if (this == o) return true; /* return true is the state is the same */
+        if (o == null || getClass() != o.getClass()) return false; /* if not return false */
         Products products = (Products) o;
         return Objects.equals(id, products.id);
     }
