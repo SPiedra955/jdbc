@@ -6,6 +6,9 @@
  * [**First connection to database**](first-connection-to-database)
    * [**CRUD**](#crud)
  * [**Connection Pool**](#connection-pool)
+   * [**Configure dependencies**](#configure-dependencies)
+   * [**Create a Java class**](#create-a-java-class)
+   * [**HikariCP**](#hikaricp)
  * [**Connection using JPA**](#connection-using-jpa)
  
  # Introduction
@@ -102,5 +105,51 @@ In the image above we insert some values for students such as personal data and 
 # Connection Pool
 
 A connection pool maintains a number of open database connections and this number can vary depending on the load of the service. So instead of opening a new connection yourself, you simply request one of the available connections, thus improving the performance of your application. Not closing your connections and opening new ones every time you need them is a waste of resources and will lead to poor performance.
+
+### Configure dependencies
+
+These are the dependencies you need to add to your [````pom.xml````](https://github.com/SPiedra955/jdbc/blob/master/pom.xml)
+
+````
+<dependency>
+  <groupId>com.zaxxer</groupId> 
+  <artifactId>HikariCP</artifactId>
+  <version>5.0.0</version>
+</dependency>
+  
+<dependency>
+   <groupId>org.slf4j</groupId>
+   <artifactId>slf4j-simple</artifactId>
+   <version>1.8.0-beta4</version>
+</dependency>
+````
+
+### Create a Java class 
+
+Create a class like [```ConnectionPool.java```](https://github.com/SPiedra955/jdbc/blob/master/src/main/java/edu/newdawn/ConnectionPool.java)
+
+### HikariCP
+
+HikariCP is the library that we will use to make the connection pool, it needs information that specifies the database, user, password, port.
+This information can be located in the same file or inside a folder in the project, in this case it is located in the Java class.
+
+Here is the main [```repo```](https://github.com/brettwooldridge/HikariCP#rocket-initialization)
+of the hikari developers if you want to configure the hikari file in another way.
+
+_Example_:
+
+````
+ private static void initDatabaseConnectionPool() {
+            dataSource = new HikariDataSource();
+            dataSource.setJdbcUrl("jdbc:mariadb://localhost:[db_port]/[db_name]");
+            dataSource.setUsername("[db_user]");
+            dataSource.setPassword("[db_password]");
+        }
+````
+
+_Expected output for this file_:
+
+![image](https://user-images.githubusercontent.com/114516225/232217294-ea4df5c8-f8f4-406f-ab60-ed449aac2a88.png)
+
 
 # Connection using JPA
