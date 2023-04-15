@@ -10,6 +10,9 @@
    * [**Create a Java class**](#create-a-java-class)
    * [**HikariCP**](#hikaricp)
  * [**Connection using JPA**](#connection-using-jpa)
+   * [**Dependencies**](#dependencies)
+   * [**Files**](#files)
+   * [**Database connection**](#database-connection)
  
  # Introduction
  
@@ -192,7 +195,7 @@ JPA stands for Java Persistence API. It is a Java specification that provides a 
 
 [```ApplicationJPA.java```](https://github.com/SPiedra955/jdbc/blob/master/src/main/java/edu/newdawn/ApplicationJPA.java) This file uses the JpaService class to create and retrieve objects from the JPA database. In its main() method, it first calls the createProducts() method which creates some Products objects with random names and prices and stores them in the database. Then, it calls the printProducts() method that executes a JPA query to retrieve all the products that have a price greater than 5 and displays them by console. The file is a sample application that demonstrates how to use the JpaService class to interact with a JPA database.
 
-### Database info
+### Database connection
 
 You have to create a folder called ``resources`` inside create another folder as ``META-INF`` with a file called [``persistence.xml``](https://github.com/SPiedra955/jdbc/blob/master/src/main/resources/META-INF/persistence.xml) and specify your database information.
 
