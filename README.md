@@ -5,7 +5,7 @@
  * [**Starting a project with Maven**](#starting-a-project-with-maven)
  * [**First connection to database**](first-connection-to-database)
    * [**CRUD**](#crud)
- * [**Pool connection**](#pool-connection)
+ * [**Connection Pool**](#connection-pool)
  * [**Connection using JPA**](#connection-using-jpa)
  
  # Introduction
@@ -99,6 +99,8 @@ _Expected output for this file
 
 In the image above we insert some values for students such as personal data and their grades for a course where by default the value ___approved___ is false, when we update the values they are set to ___true___ if the grade is equal or higher than 5 and finally a student is dropped because he/she leaves the course.
 
-# Pool connection
+# Connection Pool
+
+A connection pool maintains a number of open database connections and this number can vary depending on the load of the service. So instead of opening a new connection yourself, you simply request one of the available connections, thus improving the performance of your application. Not closing your connections and opening new ones every time you need them is a waste of resources and will lead to poor performance.
 
 # Connection using JPA
