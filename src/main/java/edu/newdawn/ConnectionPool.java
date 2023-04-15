@@ -16,15 +16,15 @@ public class ConnectionPool {
             initDatabaseConnectionPool();
             deleteData("%");
             readData();
-            createData("Java", 10);
-            createData("JavaScript", 9);
-            createData("C++", 8);
-            createData("Html", 9);
+            createData("Guardianes de la galaxia", 4);
+            createData("Black Panther", 9);
+            createData("John Wick", 4);
+            createData("Super Mario Bros", 6);
             readData();
-            updateData("C++", 5);
-            updateData("Java", 5);
+            updateData("John Wick", 9);
+            updateData("Super Mario Bros", 10);
             readData();
-            deleteData("Html");
+            deleteData("Guardianes de la galaxia");
             readData();
 		} finally {
 			closeDatabaseConnectionPool();
@@ -38,7 +38,7 @@ public class ConnectionPool {
         int rowsInserted;
 		try (Connection connection = dataSource.getConnection()) {
 			try (PreparedStatement statement = connection.prepareStatement("""
-					    INSERT INTO programming_language(name, rating)
+					    INSERT INTO films(name, rating)
 					    VALUES (?, ?)
 					""")) {
 				statement.setString(1, name);
@@ -57,7 +57,7 @@ public class ConnectionPool {
             try (Connection connection = dataSource.getConnection()) {
                 try (PreparedStatement statement = connection.prepareStatement("""
                             SELECT name, rating
-                            FROM programming_language
+                            FROM films
                             ORDER BY rating DESC
                         """)) {
                     try (ResultSet resultSet = statement.executeQuery()) {
@@ -81,14 +81,14 @@ public class ConnectionPool {
             System.out.print("Updating data...");
             try (Connection connection = dataSource.getConnection()) {
                 try (PreparedStatement statement = connection.prepareStatement("""
-                            UPDATE programming_language
+                            UPDATE films
                             SET rating = ?
                             WHERE name = ?
                         """)) {
                     statement.setInt(1, newRating);
                     statement.setString(2, name);
                     int rowsUpdated = statement.executeUpdate();
-                    System.out.println("Rows updated: " + rowsUpdated);
+                    System.out.println("\nRows updated: " + rowsUpdated);
                 }
             }
         }
@@ -98,7 +98,7 @@ public class ConnectionPool {
             System.out.print("Deleting data...");
             try (Connection connection = dataSource.getConnection()) {
                 try (PreparedStatement statement = connection.prepareStatement("""
-                            DELETE FROM programming_language
+                            DELETE FROM films
                             WHERE name LIKE ?
                         """)) {
                     statement.setString(1, nameExpression);
@@ -110,9 +110,9 @@ public class ConnectionPool {
 
         private static void initDatabaseConnectionPool() {
             dataSource = new HikariDataSource();
-            dataSource.setJdbcUrl("jdbc:mariadb://localhost:3306/uni");
-            dataSource.setUsername("root");
-            dataSource.setPassword("1234");
+            dataSource.setJdbcUrl("jdbc:mariadb://localhost:[db_port]/[db_name]");
+            dataSource.setUsername("[db_user]");
+            dataSource.setPassword("[db_password]");
         }
     
         private static void closeDatabaseConnectionPool() {
