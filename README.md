@@ -186,11 +186,17 @@ JPA stands for Java Persistence API. It is a Java specification that provides a 
 
 ### Files
 
-[```Products.java```] This file contains the code to create the table and its fields, the methods are defined and very intuitive to understand.
+[```Products.java```](https://github.com/SPiedra955/jdbc/blob/master/src/main/java/edu/newdawn/Products.java) This file contains the code to create the table and its fields, the methods are defined and very intuitive to understand.
 
-[```JpaService.java```] This code allows executing functions inside a transaction in a JPA database. The class has a runInTransaction() method that takes a function as an argument and executes it inside a transaction. If the function executes successfully, the transaction is committed, otherwise a rollback is performed. The class also has methods to initialise and close the database connection.
+[```JpaService.java```](https://github.com/SPiedra955/jdbc/blob/master/src/main/java/edu/newdawn/JpaService.java) This code allows executing functions inside a transaction in a JPA database. The class has a runInTransaction() method that takes a function as an argument and executes it inside a transaction. If the function executes successfully, the transaction is committed, otherwise a rollback is performed. The class also has methods to initialise and close the database connection.
 
-[```ApplicationnJPA.java```] This file uses the JpaService class to create and retrieve objects from the JPA database. In its main() method, it first calls the createProducts() method which creates some Products objects with random names and prices and stores them in the database. Then, it calls the printProducts() method that executes a JPA query to retrieve all the products that have a price greater than 5 and displays them by console. The file is a sample application that demonstrates how to use the JpaService class to interact with a JPA database.
+[```ApplicationJPA.java```](https://github.com/SPiedra955/jdbc/blob/master/src/main/java/edu/newdawn/ApplicationJPA.java) This file uses the JpaService class to create and retrieve objects from the JPA database. In its main() method, it first calls the createProducts() method which creates some Products objects with random names and prices and stores them in the database. Then, it calls the printProducts() method that executes a JPA query to retrieve all the products that have a price greater than 5 and displays them by console. The file is a sample application that demonstrates how to use the JpaService class to interact with a JPA database.
+
+### Database info
+
+You have to create a folder called ``resources`` inside create another folder as ``META-INF`` with a file called [``persistence.xml``](https://github.com/SPiedra955/jdbc/blob/master/src/main/resources/META-INF/persistence.xml) and specify your database information.
+
+The path for this folder it's important and should have a path like this ```src\main\resources\META-INF\persistence.xml```
 
 _Expected output_:
 
