@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.example</groupId>
-	<artifactId>jdbc-demo</artifactId>
+	<artifactId>jdbc_demo</artifactId>
 	<version>1.0-SNAPSHOT</version>
 
 	<properties>
@@ -72,7 +72,7 @@
 							<createDependencyReducedPom>false</createDependencyReducedPom>
 							<transformers>
 								<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-									<mainClass><com class="edu.newdawn.ApplicationJPA"></com></mainClass>
+									<mainClass>com.edu.newdawn.ApplicationJPA</mainClass>
 								</transformer>
 							</transformers>
 						</configuration>
